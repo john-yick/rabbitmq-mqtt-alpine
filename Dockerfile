@@ -1,8 +1,7 @@
-FROM rabbitmq:3.12.0-alpine
+FROM rabbitmq:3.12-management-alpine
 
-ENV RABBITMQ_VERSION=3.12.0
+ENV RABBITMQ_VERSION=3.12
 
-RUN rabbitmq-plugins enable --offline rabbitmq_management
 RUN rabbitmq-plugins enable --offline rabbitmq_mqtt
 
 # Fix nodename
@@ -13,6 +12,9 @@ EXPOSE 5672
 
 # rabbitmq_management
 EXPOSE 15672
+EXPOSE 15675
+EXPOSE 15692
 
 # rabbitmq_mqtt
+EXPOSE 1883
 EXPOSE 8883
